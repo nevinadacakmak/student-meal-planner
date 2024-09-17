@@ -1,12 +1,12 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from . import views
+from .views import MealPlanViewSet, RecipeViewSet, UserProfileViewSet
 
 router = DefaultRouter()
-router.register(r'recipes', views.RecipeViewSet)
-router.register(r'meal-plans', views.MealPlanViewSet)
+router.register(r'meal-plans', MealPlanViewSet)
+router.register(r'recipes', RecipeViewSet)
+router.register(r'user-profiles', UserProfileViewSet)
 
 urlpatterns = [
-    path('', views.home, name='home'),  # This is for the homepage
-    path('api/', include(router.urls)),  # API endpoints
+    path('api/', include(router.urls)),
 ]
